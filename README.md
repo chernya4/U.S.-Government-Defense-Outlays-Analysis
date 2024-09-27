@@ -4,6 +4,7 @@ Analysis of national defense outlays submitted as part of a homework assignment 
 Taught by Professor Patrick Gallagher. Former director of NIST and former chancellor of the University of Pittsburgh. 
 
 Goal of Assignment: 
+
 The goal of this session is to use the Science and Engineering IndicatorsLinks to an external site. from the National Center for Science and Engineering Statistics at NSF. 
 
 Imagine you are on the staff at OMB.  Your boss asks to prepare a "one-pager" on how a particular national need has impacted federal R&D funding.  (Because you work at OMB, you can also use their historical dataLinks to an external site..)
