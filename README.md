@@ -8,9 +8,6 @@ __Content:__
 2. Code for data analysis.
 3. Original source of data.
 
-__Python Packages Used:__
-
-
 __Goal of Assignment:__
 
 _The goal of this session is to use the Science and Engineering IndicatorsLinks to an external site. from the National Center for Science and Engineering Statistics at NSF._
