@@ -1,25 +1,74 @@
-# U.S.-Government-Defense-Outlays-Analysis
-Analysis of national defense outlays submitted as part of a homework assignment for PHYS 3101 - Federal R&amp;D. 
+# Modeling U.S. National Defense Spending (1962–2023)
 
-Taught by Professor Patrick Gallagher. Former director of NIST and former chancellor of the University of Pittsburgh. 
+**Author**: Mykola Chernyashevskyy  
+**Affiliation**: University of Pittsburgh, Department of Physics and Astronomy  
+**Email**: myc21@pitt.edu
 
-__Content:__
-1. Final Assignment Submission.
-2. Code for data analysis.
-3. Original source of data.
+---
 
-__Goal of Assignment:__
+## 🏛️ Introduction
 
-_The goal of this session is to use the Science and Engineering IndicatorsLinks to an external site. from the National Center for Science and Engineering Statistics at NSF._
+This project explores long-term trends in U.S. **national defense spending** from 1962 to 2023, adjusted to constant FY 2017 dollars. The data reveals both cyclical and linear behavior—capturing both political cycles and long-term increases.
 
-_Imagine you are on the staff at OMB.  Your boss asks to prepare a "one-pager" on how a particular national need has impacted federal R&D funding.  (Because you work at OMB, you can also use their historical dataLinks to an external site..)_
+We fit the data using a **combined sinusoidal + linear model** and extract **local maxima and minima** to highlight key turning points in defense budgets. The plot also shades presidential administrations by party to provide historical context.
 
-_To address the question you will need to:_
+---
 
-_(1) identify a national need, problem or priority to choose to examine.  (Hint: choosing something between 1990-2020 will be earlier to find comparative data);_
+## 📈 Data
 
-_(2) explore the data (reports, charts and tables) from the S&E indicators and identify a funding trend that might be correlated to the national need you identified._  
+- **Source**: U.S. historical budget data for national defense outlays (in constant FY 2017 USD).
+- **Years Covered**: 1962–2023
+- **Data Shape**:  
+  - `year`: 62 time points (1962–2023)  
+  - `Spending`: National defense spending (in billions)
 
-_(3) summarize in a few sentences or bullet points what impact you saw (or didn't see) and draw a conclusion about the impact that national need or priority has had on funding.  You may choose to look at total federal funding, a portion of federal funding (e.g. basic research, or university-based research), or agency-specific funding._
+---
 
+## 🧪 Methods
 
+### 🔄 Fitting Function
+
+The spending curve is modeled as:
+
+\[
+y = A \cdot \sin(Bx + C) + Dx + E
+\]
+
+Where:
+- `A`: amplitude of oscillation  
+- `B`: frequency of oscillation  
+- `C`: phase shift  
+- `D`: slope of linear trend  
+- `E`: intercept
+
+### 📌 Peak Detection
+
+- **Local Maxima**: Identified using `scipy.signal.find_peaks`  
+- **Local Minima**: Detected by applying the same method to `-y`  
+
+### 🟦🟥 Administration Highlighting
+
+U.S. presidential administrations are shaded:
+- 🟦 **Blue**: Democratic
+- 🟥 **Red**: Republican
+
+These intervals are marked using `plt.fill_betweenx`.
+
+---
+
+## 📊 Output
+
+- ⚫ Scatter plot of original spending data  
+- 🟢 Sinusoidal + linear best-fit curve  
+- ❌ Annotated local peaks (green) and troughs (orange)  
+- 📋 Fit equation displayed directly on the plot  
+- 🟥🟦 Background shading for political context  
+
+---
+
+## 🧰 Dependencies
+
+Make sure you have the following Python libraries installed:
+
+```bash
+pip install numpy matplotlib scipy
